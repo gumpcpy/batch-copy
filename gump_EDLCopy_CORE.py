@@ -43,47 +43,47 @@ class CopyByEDL():
 	exec_log_path = 'exec_log.txt'
 	info_log_path = 'info_log.txt'
 	
-	def __init__(self,clip_path,copy_from_path,copy_to_path,chksum='Y',kpDir='Y',kpLevel=0,chkbox_only='N',input_only='',chkbox_only_not='N',input_only_not=''):
+	#def __init__(self,clip_path,copy_from_path,copy_to_path,chksum='Y',kpDir='Y',kpLevel=0,chkbox_only='N',input_only='',chkbox_only_not='N',input_only_not=''):
+	def __init__(self,**thePath):		
 		# from path
-		if not os.path.isdir(copy_from_path):
-			print("Please Choose Copy From" + copy_from_path)
+		if not os.path.isdir(thePath['from_path']):
+			print("Please Choose Copy From" + thePath['from_path'])
 			return 
 		else:
-			self.copy_from_path = copy_from_path
+			self.copy_from_path = thePath['from_path']
 		
         
         # to path
-		if not os.path.isdir(copy_to_path):
+		if not os.path.isdir(thePath['to_path']):
 			print("Please Choose Copy To")
 			return 
 		else:
-			self.copy_to_path = copy_to_path
+			self.copy_to_path = thePath['to_path']
         
         # edl/txt path
-		if os.path.isfile(clip_path):						
-			if clip_path.find('.') >= 0:
+		if os.path.isfile(thePath['clip_path']):						
+			if thePath['clip_path'].find('.') >= 0:
 				
-				tmp = clip_path.split('.')
+				tmp = thePath['clip_path'].split('.')
 				if tmp[1] == 'edl':
-					self.a_getClipFromEDL(clip_path)
+					self.a_getClipFromEDL(thePath['clip_path'])
 				elif tmp[1] == 'txt':
-					self.a1_getClipFromTXT(clip_path)
+					self.a1_getClipFromTXT(thePath['clip_path'])
 				else:
 					print('No Valid Clip File')				
 
 		else:
 			print("Please Choose EDL or TXT")
 			return         
-        
-        
+            
 		# param
-		self.chksum = chksum
-		self.kpDir = kpDir
-		self.kpLevel = kpLevel		
-		self.chkbox_only = chkbox_only
-		self.input_only = input_only
-		self.chkbox_only_not = chkbox_only_not
-		self.input_only_not = input_only_not
+		self.chksum = thePath['rad_chksum']
+		self.kpDir = thePath['rad_kpdir']
+		self.kpLevel = thePath['spin_level']		
+		self.chkbox_only = thePath['chkbox_only']
+		self.input_only = thePath['input_only']
+		self.chkbox_only_not = thePath['chkbox_only_not']
+		self.input_only_not = thePath['input_only_not']
 				
 		#self.b_genCopyScript()
 		#self.c_exeScript()

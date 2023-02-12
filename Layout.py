@@ -19,17 +19,18 @@ from gump_EDLCopy_CORE import CopyByEDL
 
 
 class Ui_MainWindow(object):
-    clip_path = '' #要拷貝的檔案edl/txt  /Users/gump/Desktop/demo_type2.edl
-    from_path = ''#搜尋檔案的來源路徑 /Users/gump/Desktop/CP_FROM/
-    to_path = '' #拷貝的目標路徑 /Users/gump/Desktop/CP_TO/
-    rad_chksum = 'Y'#要不要校驗
-    rad_kpdir = 'Y' #要不要保留路徑數
-    spin_level = 0 #要去掉前面幾個路徑
     
-    chkbox_only = 'N' 
-    input_only = ''
-    chkbox_only_not = 'N'
-    input_only_not = ''
+    thePath = {}
+    thePath['clip_path'] = '' #要拷貝的檔案edl/txt  /Users/gump/Desktop/EDLCopyV061/demo_type2.edl
+    thePath['from_path'] = '' #搜尋檔案的來源路徑 /Users/gump/Desktop/EDLCopyV061/CP_FROM
+    thePath['to_path'] = '' #拷貝的目標路徑 /Users/gump/Desktop/EDLCopyV061/TO
+    thePath['rad_chksum'] = 'Y' #要不要校驗
+    thePath['rad_kpdir'] = 'Y' #要不要保留路徑數
+    thePath['spin_level'] = 0 #要去掉前面幾個路徑
+    thePath['chkbox_only'] = 'N' #只要拷貝某幾種檔案
+    thePath['input_only'] = '' #只要拷貝哪些種檔案
+    thePath['chkbox_only_not'] = 'N' #不要拷貝某幾種檔案
+    thePath['input_only_not'] = '' #不要拷貝哪幾種檔案
     
     LAST_DIR = '.' #上次打開的路徑記錄在setting.ini
     
@@ -301,25 +302,24 @@ class Ui_MainWindow(object):
         
 # Marker: Choose EDL File   
     def CallFileChoose_edl(self):
-        print('call edl choose')
-        
-        self.clip_path = self.FileDialog(last_directory='LastClipPath',fmt=['txt','edl'], isFolder=False)
-        print(self.clip_path + "<----clip_path")
-        self.label_path_edl.setText(self.clip_path) ####Set EDL PATH 
+                
+        clip_path = self.FileDialog(last_directory='LastClipPath',fmt=['txt','edl'], isFolder=False)        
+        self.label_path_edl.setText(clip_path) ####Set EDL PATH 
+        self.thePath['clip_path'] = clip_path        
         return ''
        
     def CallFileChoose_from(self):
-        print('call from path choose')
-        self.from_path = self.FileDialog(last_directory='LastFromPath',isFolder=True)
-        print(self.from_path + "<----from_path")
-        self.label_path_from.setText(self.from_path)
+        
+        from_path = self.FileDialog(last_directory='LastFromPath',isFolder=True)        
+        self.label_path_from.setText(from_path)
+        self.thePath['from_path'] = from_path        
         return ''       
        
     def CallFileChoose_to(self):
-        print('call to path choose')
-        self.to_path = self.FileDialog(last_directory='LastToPath',isFolder=True)
-        print(self.to_path + "<----from_path")
-        self.label_path_dest.setText(self.to_path)
+        
+        to_path = self.FileDialog(last_directory='LastToPath',isFolder=True)        
+        self.label_path_dest.setText(to_path)
+        self.thePath['to_path'] = to_path
         return ''      
                 
     def FileDialog(self,last_directory='', forOpen=True, fmt=[''], isFolder=False):
@@ -390,9 +390,9 @@ class Ui_MainWindow(object):
         radioButton = self.sender()
         if radioButton.isChecked():
             if(radioButton.function=='chk_y'):
-                self.rad_chksum = "Y"                  
+                self.thePath['rad_chksum'] = "Y"                  
             elif radioButton.function=='chk_n':
-                self.rad_chksum = "N"                                          
+                self.thePath['rad_chksum'] = "N"                                          
             print("Choosed Function: %s" % (radioButton.function))
                    
     # Radio Btn Action
@@ -400,24 +400,24 @@ class Ui_MainWindow(object):
         radioButton = self.sender()
         if radioButton.isChecked():           
             if radioButton.function=='kpdir_y':
-                self.rad_kpdir = "Y"   
+                self.thePath['rad_kpdir'] = "Y"   
             elif radioButton.function=='kpdir_n':
-                self.rad_kpdir = "N"                                            
+                self.thePath['rad_kpdir'] = "N"                                            
             print("Choosed Function: %s" % (radioButton.function))                   
             
     # CheckBox    
     
     def btnstate(self, btn):
         if self.check_only_copy.isChecked():
-            self.chkbox_only = 'Y'
+            self.thePath['chkbox_only'] = 'Y'
             
         else:
-            self.chkbox_only = 'N'
+            self.thePath['chkbox_only']  = 'N'
             
         if self.check_only_not_copy.isChecked():
-            self.chkbox_only_not = 'Y'
+            self.thePath['chkbox_only_not']  = 'Y'
         else:
-            self.chkbox_only_not = 'N'   
+            self.thePath['chkbox_only_not'] = 'N'   
                                            
                     
     # Output Log    
@@ -437,28 +437,40 @@ class Ui_MainWindow(object):
     def CallCopyClass(self):
         self.text_log.clear()
         
-        self.input_only = self.line_only_copy.text()
-        # print('input_only:' + self.input_only)
-        self.input_only_not = self.line_only_not_copy.text()  
-        # print('input_only_not:' + self.input_only)
+        self.thePath['input_only'] = self.line_only_copy.text()     
+        self.thePath['input_only_not'] = self.line_only_not_copy.text()  
         
-        if not os.path.isfile(self.clip_path):
+        isValid = True        
+       
+        if os.path.isfile(self.thePath['clip_path']):
+            print("Clip Path OS:" + self.thePath['clip_path'])
+        
+        if 'clip_path' in self.thePath and os.path.isfile(self.thePath['clip_path']):           
+            print("Clip Path:" + self.thePath['clip_path'])
+           
+        else:
             print("Please Choose EDL/TXT File")
-        if not os.path.isdir(self.from_path):
-            print("Please Choose From Path")
-        if not os.path.isdir(self.to_path):
-            print("Please Choose Destination Path")                        
-        else:     
+            isValid = False
+                    
+        if 'from_path' in self.thePath and os.path.isdir(self.thePath['from_path']):           
+            print("From Path:" + self.thePath['from_path'])
+        else:
+            print("Please Choose From Path")    
+            isValid = False        
+        
+        if 'to_path' in self.thePath and os.path.isdir(self.thePath['to_path']):           
+            print("To Path:" + self.thePath['to_path'])
+        else:
+            print("Please Choose Destination Path")
+            isValid = False
+            
+        if isValid:       
             print("Start Proceess...")
             self.progressBar.setVisible(True)
             time.sleep(1)       
                                                        
-            self.thread = Thread(self.clip_path,self.from_path,self.to_path,
-                                 self.rad_chksum,self.rad_kpdir,self.spin_level,
-                                 self.chkbox_only,self.input_only,
-                                 self.chkbox_only_not,self.input_only_not)                
-            self.thread.valueChange.connect(self.callbackProgress)
-            
+            self.thread = Thread(**self.thePath)                
+            self.thread.valueChange.connect(self.callbackProgress)            
             self.thread.start()
                         
         return True         
@@ -480,25 +492,14 @@ class Thread(QThread):
     valueChange = pyqtSignal(str,int,int)
     #构造函数    
                                  
-    def __init__(self,clipPath,fromPath,toPath,rad_chksum,rad_kpdir,spin_level,
-                 chkbox_only,input_only,chkbox_only_not,input_only_not):
+    def __init__(self,**thePath):
         super(Thread, self).__init__()
         self.isPause = False
         self.isCancel=False
         self.cond = QWaitCondition()
         self.mutex = QMutex()    
-        
-        self.clipPath = clipPath
-        self.fromPath = fromPath
-        self.toPath = toPath
-        self.rad_chksum = rad_chksum
-        self.rad_kpdir = rad_kpdir
-        self.spin_level = spin_level
-        self.chkbox_only = chkbox_only
-        self.input_only = input_only
-        self.chkbox_only_not = chkbox_only_not
-        self.input_only_not = input_only_not
-
+                
+        self.thePath = thePath        
     #暂停
     def pause(self):
         print("线程暂停")
@@ -516,10 +517,7 @@ class Thread(QThread):
     #运行(入口)
     def run(self):
         has_copied = 0
-        t = CopyByEDL(self.clipPath,self.fromPath,self.toPath,
-                    self.rad_chksum,self.rad_kpdir,self.spin_level,
-                    self.chkbox_only,self.input_only,
-                    self.chkbox_only_not,self.input_only_not)
+        t = CopyByEDL(**self.thePath)
         copy_script = t.b_genCopyScript()
         for cmd in copy_script:
             
