@@ -3,4 +3,6 @@ Setting.ini
 info_log.txt
 a.ui
 app_copy.code-workspace
-
+/.cloudbase
+/__pycache__
+.DS_Store

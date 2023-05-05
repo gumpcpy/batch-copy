@@ -1,6 +1,0 @@
-rsync -arvhcP /Users/gump/Desktop/CP_FROM/C/c2/c.png /Users/gump/Desktop/CP_TO/C/c2/c.png
-rsync -arvhcP /Users/gump/Desktop/CP_FROM/C/b.png /Users/gump/Desktop/CP_TO/C/b.png
-rsync -arvhcP /Users/gump/Desktop/CP_FROM/a/ /Users/gump/Desktop/CP_TO/a/
-rsync -arvhcP /Users/gump/Desktop/CP_FROM/a/a.png /Users/gump/Desktop/CP_TO/a/a.png
-rsync -arvhcP /Users/gump/Desktop/CP_FROM/C/a.py /Users/gump/Desktop/CP_TO/C/a.py
-rsync -arvhcP /Users/gump/Desktop/CP_FROM/C/c2/a.png /Users/gump/Desktop/CP_TO/C/c2/a.png
