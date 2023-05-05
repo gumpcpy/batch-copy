@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
+# Author: Chen Pei Yu
+# Date: 2023 Jan.
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication
-import sys,time
+import sys
 import Layout
-
-# Author: Chen Pei Yu
-# DAte: 2023 Jan.
         
 StyleSheet = """
 QPushButton{

@@ -334,7 +334,7 @@ class Ui_MainWindow(object):
 #         dialog.setFilter(dialog.filter() | QDir.Hidden)
         dialog.setFilter(dialog.filter())
     
-        # ARE WE TALKING ABOUT FILES OR FOLDERS
+        # FILES OR FOLDERS
         if isFolder:
             dialog.setFileMode(QFileDialog.DirectoryOnly)
         else:
@@ -370,12 +370,10 @@ class Ui_MainWindow(object):
         if dialog.exec_() == QDialog.Accepted:
             path = dialog.selectedFiles()[0]  # returns a list                                   
             
-            # 保存当前目录的路径到配置文件中，另外如果不存在'tmp/.temp'文件该函数会自动创建
-            # print('打開的路徑----->')
-            # print(os.path.dirname(path))
-            # print('------------打開的路徑')
+            # 保存当前目录的路径到配置文件中，另外如果不存在'tmp/.temp'文件该函数会自动创建          
+            # print(os.path.dirname(path))          
             settings.setValue(str(last_directory), os.path.dirname(path))            
-             # 将路径设为''程序会使用上一次的路径
+            # 将路径设为''程序会使用上一次的路径
             # self.last_path = ''
 
             return path
@@ -485,9 +483,9 @@ class MyThread(QThread):
         
     
 class Thread(QThread):
-    #线程值信号
+    # Thread signal
     valueChange = pyqtSignal(str,int,int)
-    #构造函数    
+    # Constructor
                                  
     def __init__(self,**thePath):
         super(Thread, self).__init__()
@@ -497,21 +495,21 @@ class Thread(QThread):
         self.mutex = QMutex()    
                 
         self.thePath = thePath        
-    #暂停
+    # Pause
     def pause(self):
         print("线程暂停")
         self.isPause = True
         
-    #恢复
+    # Resume
     def resume(self):
         print("线程恢复")
         self.isPause = False
         self.cond.wakeAll()
-    #取消   
+    # Cancel
     def cancel(self):
         print("线程取消")
         self.isCancel=True
-    #运行(入口)
+    # Run(Entrance)
     def run(self):
         has_copied = 0
         t = CopyByEDL(**self.thePath)
@@ -519,7 +517,7 @@ class Thread(QThread):
         for cmd in copy_script:
             
             try:
-                #线程锁on
+                # Thread Lock On
                 self.mutex.lock()
                 os.system(cmd)
                 has_copied += 1
@@ -536,40 +534,4 @@ class Thread(QThread):
         print("Command + Q 退出")
         copy_script.clear()
         has_copied = 0
-        # with open('exec_log.txt') as reader:
-        #     i=0
-        #     while True:
-        #         lines = reader.readline().strip()                       
-        #         if not lines:
-        #             break
-        #         else:        
-        #             # self.file_list.append(lines)
-        #             #线程锁on
-        #             self.mutex.lock()
-        #             if self.isPause:
-        #                 self.cond.wait(self.mutex)
-        #             if self.isCancel:
-        #                 self.valueChange.emit(0)
-        #                 break
-        #             print(lines)
-        #             i+=1
-        #             self.valueChange.emit(lines,i,5)
-        #             self.msleep(600)
-        #             self.mutex.unlock()
-        
-       
-        # for i in range(100):
-        #     #线程锁on
-        #     self.mutex.lock()
-        #     if self.isPause:
-        #         self.cond.wait(self.mutex)
-        #     if self.isCancel:
-        #         self.valueChange.emit(0)
-        #         break
-        #     #业务代码
-        #     self.valueChange.emit(i)
-        #     self.msleep(100)
-        #     #线程锁off
-        #     self.mutex.unlock()
-                               
-          
+      

@@ -1,12 +1,12 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 # Author: Chen Pei Yu
 # Date: 2023 Jan.
+
 import os
 import re
 
-'''
 
-'''
 class CopyByEDL():
 		
 	
