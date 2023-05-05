@@ -15,9 +15,6 @@ from PyQt5.QtGui import *
 import time,sys,os
 from gump_EDLCopy_CORE import CopyByEDL
 
-
-
-
 class Ui_MainWindow(object):
     
     thePath = {}

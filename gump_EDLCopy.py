@@ -3,7 +3,8 @@ from PyQt5.QtWidgets import QApplication
 import sys,time
 import Layout
 
-# Author: Chen Pei Yu @2023       
+# Author: Chen Pei Yu
+# DAte: 2023 Jan.
         
 StyleSheet = """
 QPushButton{

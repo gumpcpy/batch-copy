@@ -1,11 +1,8 @@
 #!/usr/bin/env python
+# Author: Chen Pei Yu
+# Date: 2023 Jan.
 import os
-import calendar
-import time
 import re
-import sys,getopt
-import shutil
-
 
 '''
 
