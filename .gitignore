@@ -6,4 +6,4 @@ app_copy.code-workspace
 /.cloudbase
 /__pycache__
 .DS_Store
-_DO_NOT_UPLOAD/
+/_DO_NOT_UPLOAD
