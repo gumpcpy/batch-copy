@@ -479,7 +479,7 @@ class MyThread(QThread):
         self.data = data
 
     def write(self, text):
-        self.signalForText.emit(str(text))  # 发射信号
+        self.signalForText.emit(str(text))  # Emit Signal
         
     
 class Thread(QThread):

@@ -39,8 +39,7 @@ class CopyByEDL():
 	err_msg = []
 	exec_log_path = 'exec_log.txt'
 	info_log_path = 'info_log.txt'
-	
-	#def __init__(self,clip_path,copy_from_path,copy_to_path,chksum='Y',kpDir='Y',kpLevel=0,chkbox_only='N',input_only='',chkbox_only_not='N',input_only_not=''):
+		
 	def __init__(self,**thePath):		
 		# from path
 		if not os.path.isdir(thePath['from_path']):
@@ -81,30 +80,6 @@ class CopyByEDL():
 		self.input_only = thePath['input_only']
 		self.chkbox_only_not = thePath['chkbox_only_not']
 		self.input_only_not = thePath['input_only_not']
-				
-		#self.b_genCopyScript()
-		#self.c_exeScript()
-		#self.d_wrtieMsgLog()
-		#self.e_clearVar()
-		
-  # try:
-  # 	self.b_genCopyScript()
-  # except:      
-  # 	print("Try genCopyScript Error")		
-  # 	return
-  #
-  # try:
-  # 	self.c_exeScript()
-  # except:      
-  # 	print("Try ExeScript Error")		
-  # 	return
-  #
-  # try:
-  # 	self.d_wrtieMsgLog()
-  # except:      
-  # 	print("Try WrtieMsgLog Error")		
-  # 	return
-
 
 		return 
 
@@ -145,7 +120,7 @@ class CopyByEDL():
 				lines = reader.readline().strip()	
 				#如果有副檔名，就刪掉。
 				if self.del_ext_of_clip_list and lines.find('.') >= 0:					
-					tmp = lines.rsplit(".",1) #只做一次，從右邊			
+					tmp = lines.rsplit(".",1) 
 					lines = tmp[0]								
 
 				if not lines:
@@ -232,7 +207,7 @@ class CopyByEDL():
 											
 			tmp = name.rsplit(".",1) #只做一次，從右邊										
 			find_ext = tmp[1]
-			if self.input_only.find(',') >= 0: #有一串要只要考的副檔名	
+			if self.input_only.find(',') >= 0: #逗號分格的副檔名	
 				
 				tmp = self.input_only.split(",") 
 				for only_ext in tmp:
@@ -254,7 +229,7 @@ class CopyByEDL():
 		if self.chkbox_only_not=='Y' and self.input_only_not!='' and name.find('.') >= 0:									
 			tmp = name.rsplit(".",1) #只做一次，從右邊						
 			ext = tmp[1]
-			if self.input_only_not.find(',') >= 0: #有一串要只要考的副檔名	
+			if self.input_only_not.find(',') >= 0:  # 逗號分格的副檔名
 				tmp = input_only_not.split(",") 
 				for only_ext in tmp:
 					if ext.lower() == only_ext.strip().lower(): #只要有一個符合就不可以繼續下去
@@ -299,7 +274,6 @@ class CopyByEDL():
 			else:
 				script = "rsync -arvhP " + os.path.join(root,name) + " " + to_path				
 
-			#print("file script =>"+script)																							
 			self.copy_script.append(script)	
 		
 	def b1_genCopyScriptForDir(self,idx):
@@ -329,7 +303,6 @@ class CopyByEDL():
 		else:			
 			script = "rsync -arvhP " + os.path.join(root,name)+"/" + " " + to_path
 			
-		#print("dir  script =>"+script)		
 		self.copy_script.append(script)
 		
 	
@@ -381,7 +354,6 @@ class CopyByEDL():
 			self.b4_compareDirFile()
 
 		return self.copy_script
-		return True
 	
 	
 	def b4_compareDirFile(self):
@@ -453,7 +425,6 @@ class CopyByEDL():
 		self.file_list.clear()
 		self.copy_script.clear()	
 		self.err_msg.clear()
-  # print('Clear Var !')
 		
 		return True
 	
