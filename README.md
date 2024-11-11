@@ -50,6 +50,10 @@ python gump_EDLCopy.py
 
 2023 02 10 v0.6.1
 
+## Screenshot
+
+![Screenshot](./screenshot/EDLCopy_0.6.1.png)
+
 
 
 
