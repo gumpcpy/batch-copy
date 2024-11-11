@@ -1,5 +1,4 @@
-# EDLCopy
-
+# 挑條拷貝工具
     把要拷貝的檔案名稱列在txt檔案中，或者EDL檔案中，
 
     指定來源資料夾，
@@ -10,6 +9,13 @@
 
     * 會自動移除檔案的副檔名
     * 使用rsync來拷貝檔案
+## Screenshot
+
+![Screenshot](./screenshot/EDLCopy_0.6.1.png)
+
+## Release Date & Version 
+
+2023 02 10 v0.6.1
 
 ## Github
 
@@ -44,23 +50,3 @@ python version 3.19
 Install required packages in requirements.txt
 
 python gump_EDLCopy.py
-
-
-## Release Date & Version 
-
-2023 02 10 v0.6.1
-
-## Screenshot
-
-![Screenshot](./screenshot/EDLCopy_0.6.1.png)
-
-
-
-
-
-
-
-
-
-
-
