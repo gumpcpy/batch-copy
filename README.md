@@ -15,6 +15,9 @@
 
     https://github.com/gumpcpy/EDLCopy
 
+    git push EDLCopy main
+    
+
 ## Description
 Qt Python App
 
