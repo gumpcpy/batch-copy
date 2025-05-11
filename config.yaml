@@ -1,0 +1,449 @@
+# 默认语言设置
+default_language: "zh_cn"  # 可选值：zh_cn（简体中文）, zh_tw（繁体中文）, en（英文）
+
+# 语言配置
+languages:
+  zh_cn:
+    name: "简体中文"
+    code: "zh_CN"
+  zh_tw:
+    name: "繁體中文"
+    code: "zh_TW"
+  en:
+    name: "English"
+    code: "en_US"
+
+usage_steps:
+  en:
+    - "1. Select source directory (can add multiple)"
+    - "2. Select target directory"
+    - "3. Select EDL or TXT file containing clip list"
+    - "4. Choose copy mode: files only or maintain directory structure"
+    - "5. Choose whether to enable checksum verification"
+    - "6. Choose whether to handle RED camera folders"
+    - "7. Click Start Copy button to begin processing"
+    - "8. Can click Stop button to interrupt operation at any time"
+    - "9. Log area shows detailed processing information"
+    - "10. Can save or clear logs"
+  zh_tw:
+    - "1. 選擇源目錄（可以添加多個）"
+    - "2. 選擇目標目錄"
+    - "3. 選擇包含片段列表的EDL或TXT文件"
+    - "4. 選擇複製模式：只複製文件或保持目錄結構"
+    - "5. 選擇是否啟用校驗和檢查"
+    - "6. 選擇是否處理RED相機文件夾"
+    - "7. 點擊開始複製按鈕開始處理"
+    - "8. 可以隨時點擊停止按鈕中斷操作"
+    - "9. 日誌區域會顯示詳細的處理過程"
+    - "10. 可以保存或清除日誌"
+  zh_cn:
+    - "1. 选择源目录（可以添加多个）"
+    - "2. 选择目标目录"
+    - "3. 选择包含片段列表的EDL或TXT文件"
+    - "4. 选择复制模式：只复制文件或保持目录结构"
+    - "5. 选择是否启用校验和检查"
+    - "6. 选择是否处理RED相机文件夹"
+    - "7. 点击开始复制按钮开始处理"
+    - "8. 可以随时点击停止按钮中断操作"
+    - "9. 日志区域会显示详细的处理过程"
+    - "10. 可以保存或清除日志"
+
+translations:
+  en:
+    window_title: "Batch File Copy Tool"
+    select_folder: "Select Source Directory"
+    no_folder_selected: "No folder selected"
+    max_depth: "Select Folder Depth:"
+    generate_csv: "Generate CSV"
+    generate_pdf: "Generate PDF"
+    select_output: "Select Target Directory"
+    no_output_selected: "No output location selected"
+    start_processing: "Start Organizing"
+    menu_help: "Help"
+    menu_usage: "Usage Guide"
+    menu_about: "About"
+    language: "Language"
+    status_ready: "Ready"
+    status_processing: "Processing..."
+    status_complete: "Complete"
+    status_stopped: "Stopped"
+    status_error: "Error: {}"
+    error_no_input_folder: "Please select source directory"
+    error_no_output_folder: "Please select target directory"
+    error_no_output_format: "Error: Please select at least one output format (CSV or PDF)"
+    company_name: ""
+    copyright: "Copyright © 2024 HuHu Tech."
+    version_text: "Version: {}"
+    select_folder_placeholder: "Click Browse to select a folder"
+    browse_button: "Browse"
+    menu_file: "File"
+    menu_exit: "Exit"
+
+  zh_tw:
+    window_title: "批量文件複製工具"
+    select_folder: "選擇源目錄"
+    no_folder_selected: "未選擇資料夾"
+    max_depth: "選擇顯示層數:"
+    generate_csv: "生成 CSV"
+    generate_pdf: "生成 PDF"
+    select_output: "選擇目標目錄"
+    no_output_selected: "未選擇輸出位置"
+    start_processing: "開始整理"
+    menu_help: "說明"
+    menu_usage: "使用說明"
+    menu_about: "關於"
+    language: "語言"
+    status_ready: "就緒"
+    status_processing: "處理中..."
+    status_complete: "完成"
+    status_stopped: "已停止"
+    status_error: "錯誤: {}"
+    error_no_input_folder: "請選擇源目錄"
+    error_no_output_folder: "請選擇目標目錄"
+    error_no_output_format: "錯誤請至少選擇一種輸出格式(CSV 或 PDF)"
+    company_name: ""
+    copyright: "版權所有 © 2024 HuHu Tech"
+    version_text: "版本：{}"
+    select_folder_placeholder: "點擊瀏覽選擇資料夾"
+    browse_button: "瀏覽"
+    menu_file: "檔案"
+    menu_exit: "結束"
+
+  zh_cn:
+    window_title: "批量文件复制工具"
+    select_folder: "选择源目录"
+    no_folder_selected: "未选择文件夹"
+    max_depth: "选择显示层数:"
+    generate_csv: "生成 CSV"
+    generate_pdf: "生成 PDF"
+    select_output: "选择目标目录"
+    no_output_selected: "未选择输出位置"
+    start_processing: "开始处理"
+    menu_help: "帮助"
+    menu_usage: "使用说明"
+    menu_about: "关于"
+    language: "语言"
+    status_ready: "就绪"
+    status_processing: "处理中..."
+    status_complete: "完成"
+    status_stopped: "已停止"
+    status_error: "错误: {}"
+    error_no_input_folder: "请选择源目录"
+    error_no_output_folder: "请选择目标目录"
+    error_no_output_format: "错误：请至少选择一种输出格式（CSV 或 PDF）"
+    company_name: ""
+    copyright: "版权所有 © 2024 HuHu Tech"
+    version_text: "版本：{}"
+    select_folder_placeholder: "点击浏览选择文件夹"
+    browse_button: "浏览"
+    menu_file: "文件"
+    menu_exit: "退出"
+
+app:
+  name: "批量文件复制工具"
+  version: "1.0"
+  copyright: "Copyright © 2024 HuHu Tech."
+
+ui:
+  window:
+    title:
+      zh_cn: "批量文件复制工具"
+      zh_tw: "批量檔案複製工具"
+      en: "Batch File Copy Tool"
+    width: 800
+    height: 600
+
+  layout:
+    source_path:
+      label:
+        zh_cn: "源目录："
+        zh_tw: "源目錄："
+        en: "Source Directory:"
+      placeholder:
+        zh_cn: "点击浏览选择源目录"
+        zh_tw: "點擊瀏覽選擇源目錄"
+        en: "Click to browse source directory"
+      button:
+        zh_cn: "浏览"
+        zh_tw: "瀏覽"
+        en: "Browse"
+      style: "select"
+    add_source:
+      label:
+        zh_cn: "添加源目录："
+        zh_tw: "添加源目錄："
+        en: "Add Source Directory:"
+      placeholder:
+        zh_cn: "点击浏览添加源目录"
+        zh_tw: "點擊瀏覽添加源目錄"
+        en: "Click to add source directory"
+      button:
+        zh_cn: "浏览"
+        zh_tw: "瀏覽"
+        en: "Browse"
+      style: "select"
+    target_path:
+      label:
+        zh_cn: "目标目录："
+        zh_tw: "目標目錄："
+        en: "Target Directory:"
+      placeholder:
+        zh_cn: "点击浏览选择目标目录"
+        zh_tw: "點擊瀏覽選擇目標目錄"
+        en: "Click to browse target directory"
+      button:
+        zh_cn: "浏览"
+        zh_tw: "瀏覽"
+        en: "Browse"
+      style: "select"
+    clip_list:
+      label:
+        zh_cn: "片段列表："
+        zh_tw: "片段列表："
+        en: "Clip List:"
+      placeholder:
+        zh_cn: "点击浏览选择片段列表文件"
+        zh_tw: "點擊瀏覽選擇片段列表檔案"
+        en: "Click to browse clip list file"
+      button:
+        zh_cn: "浏览"
+        zh_tw: "瀏覽"
+        en: "Browse"
+      style: "select"
+    copy_mode:
+      label:
+        zh_cn: "复制模式："
+        zh_tw: "複製模式："
+        en: "Copy Mode:"
+    options:
+      label:
+        zh_cn: "选项："
+        zh_tw: "選項："
+        en: "Options:"
+
+  buttons:
+    select_source:
+      zh_cn: "选择源目录"
+      zh_tw: "選擇源目錄"
+      en: "Select Source"
+    add_source:
+      zh_cn: "添加源目录"
+      zh_tw: "添加源目錄"
+      en: "Add Source"
+    select_target:
+      zh_cn: "选择目标目录"
+      zh_tw: "選擇目標目錄"
+      en: "Select Target"
+    select_clip_list:
+      zh_cn: "选择片段列表"
+      zh_tw: "選擇片段列表"
+      en: "Select Clip List"
+    start_copy:
+      zh_cn: "开始复制"
+      zh_tw: "開始複製"
+      en: "Start Copy"
+    stop_copy:
+      zh_cn: "停止复制"
+      zh_tw: "停止複製"
+      en: "Stop Copy"
+    clear_log:
+      zh_cn: "清除日志"
+      zh_tw: "清除日誌"
+      en: "Clear Log"
+    save_log:
+      zh_cn: "保存日志"
+      zh_tw: "儲存日誌"
+      en: "Save Log"
+
+  labels:
+    source_path: "源目录："
+    target_path: "目标目录："
+    clip_list_path: "片段列表："
+    copy_mode: "复制模式："
+    options: "选项："
+    copyright: "Copyright © 2024 HuHu Tech."
+
+  checkboxes:
+    checksum:
+      zh_cn: "校验和检查"
+      zh_tw: "校驗和檢查"
+      en: "Checksum Verification"
+    handle_red_folders:
+      zh_cn: "处理RED相机文件夹"
+      zh_tw: "處理RED相機文件夾"
+      en: "Handle RED Camera Folders"
+
+  combobox:
+    copy_mode:
+      flat:
+        zh_cn: "扁平模式"
+        zh_tw: "扁平模式"
+        en: "Flat Mode"
+      structure:
+        zh_cn: "保持目录结构"
+        zh_tw: "保持目錄結構"
+        en: "Keep Directory Structure"
+
+  messages:
+    success:
+      zh_cn: "复制完成"
+      zh_tw: "複製完成"
+      en: "Copy Complete"
+    error:
+      zh_cn: "发生错误"
+      zh_tw: "發生錯誤"
+      en: "Error Occurred"
+    no_source:
+      zh_cn: "请选择源目录"
+      zh_tw: "請選擇源目錄"
+      en: "Please select source directory"
+    no_target:
+      zh_cn: "请选择目标目录"
+      zh_tw: "請選擇目標目錄"
+      en: "Please select target directory"
+    no_clip_list:
+      zh_cn: "请选择片段列表"
+      zh_tw: "請選擇片段列表"
+      en: "Please select clip list"
+    copying:
+      zh_cn: "正在复制..."
+      zh_tw: "正在複製..."
+      en: "Copying..."
+    stopped:
+      zh_cn: "已停止"
+      zh_tw: "已停止"
+      en: "Stopped"
+
+  tooltips:
+    checksum:
+      zh_cn: "启用校验和检查，确保文件完整性"
+      zh_tw: "啟用校驗和檢查，確保文件完整性"
+      en: "Enable checksum verification to ensure file integrity"
+    handle_red_folders:
+      zh_cn: "自动处理RED相机的.RDC文件夹"
+      zh_tw: "自動處理RED相機的.RDC文件夾"
+      en: "Automatically handle RED camera .RDC folders"
+    copy_mode:
+      zh_cn: "选择复制模式：只复制文件或保持目录结构"
+      zh_tw: "選擇複製模式：只複製文件或保持目錄結構"
+      en: "Choose copy mode: files only or maintain directory structure"
+
+  menu:
+    file:
+      zh_cn: "文件"
+      zh_tw: "檔案"
+      en: "File"
+    exit:
+      zh_cn: "退出"
+      zh_tw: "結束"
+      en: "Exit"
+    help:
+      zh_cn: "帮助"
+      zh_tw: "說明"
+      en: "Help"
+    usage:
+      zh_cn: "使用说明"
+      zh_tw: "使用說明"
+      en: "Usage Guide"
+    about:
+      zh_cn: "关于"
+      zh_tw: "關於"
+      en: "About"
+    language:
+      zh_cn: "语言"
+      zh_tw: "語言"
+      en: "Language"
+
+  status:
+    ready:
+      zh_cn: "就绪"
+      zh_tw: "就緒"
+      en: "Ready"
+    processing:
+      zh_cn: "处理中..."
+      zh_tw: "處理中..."
+      en: "Processing..."
+    complete:
+      zh_cn: "完成"
+      zh_tw: "完成"
+      en: "Complete"
+    stopped:
+      zh_cn: "已停止"
+      zh_tw: "已停止"
+      en: "Stopped"
+    error:
+      zh_cn: "错误: {}"
+      zh_tw: "錯誤: {}"
+      en: "Error: {}"
+
+  log:
+    title: "日志"
+    clear: "清除日志"
+    save: "保存日志"
+
+  style:
+    button:
+      normal: |
+        QPushButton {
+            background-color: #f0f0f0;
+            border: 1px solid #555;
+            border-radius: 4px;
+            padding: 4px 8px;
+            min-width: 80px;
+            color: black;
+        }
+        QPushButton:hover {
+            background-color: #e0e0e0;
+        }
+        QPushButton:pressed {
+            background-color: #d0d0d0;
+        }
+        QPushButton:disabled {
+            background-color: #f8f8f8;
+            color: #999;
+        }
+      primary: |
+        QPushButton {       
+            background-color: #90EE90;
+            border: 1px solid #555;
+            border-radius: 4px;
+            padding: 4px 8px;
+            min-width: 80px;
+            font-weight: bold;
+            color: black;
+        }
+        QPushButton:hover {
+            background-color: #98FB98;
+        }
+        QPushButton:pressed {
+            background-color: #98FB98;
+        }
+        QPushButton:disabled {
+            background-color: #cccccc;
+            color: #666666;
+        }
+      select: |
+        QPushButton {
+            background-color: #90EE90;
+            border: 1px solid #555;
+            border-radius: 4px;
+            padding: 4px 8px;
+            min-width: 80px;
+            color: black;
+        }
+        QPushButton:hover {
+            background-color: #98FB98;
+        }
+        QPushButton:pressed {
+            background-color: #7CCD7C;
+        }
+        QPushButton:disabled {
+            background-color: #cccccc;
+            color: #666666;
+        }
+    error_label: |
+        QLabel {
+            color: red;
+            font-size: 10px;
+            padding: 2px;
+        }

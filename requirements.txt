@@ -1,0 +1,8 @@
+pyinstaller
+PyNaCl
+PyQt5
+PyQt5-Qt5
+PyQt5-sip
+qThread
+PyYAML
+
